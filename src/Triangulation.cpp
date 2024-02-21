@@ -1,7 +1,7 @@
-#include "..\headers\Triangulation.h"
+#include <iostream>
 #include <map>
 #include <vector>
-#include <iostream>
+#include "..\headers\Triangulation.h"
 
 Triangulation::Triangulation()
 {
@@ -20,7 +20,7 @@ vector<Point3D> &Triangulation::uniquePoints()
     return mUniquePoints;
 }
 
-vector<Point3D> &Triangulation :: uniqueNormals()
+vector<Point3D> &Triangulation ::uniqueNormals()
 {
     return mUniqeNormals;
 }

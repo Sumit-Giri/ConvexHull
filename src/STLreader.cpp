@@ -1,11 +1,11 @@
-#include "../headers/STLreader.h"
-#include"../headers/Point2D.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include "../headers/Point2D.h"
+#include "../headers/STLreader.h"
 using namespace std;
 
-void STLReader ::readSTL(std::string &filePath,Triangulation &triangulation)
+void STLReader ::readSTL(std::string &filePath, Triangulation &triangulation)
 {
     std::ifstream inputFile(filePath);
     if (!inputFile.is_open())
@@ -26,7 +26,7 @@ void STLReader ::readSTL(std::string &filePath,Triangulation &triangulation)
 
     while (std::getline(inputFile, line))
     {
-        
+
         if (line.find("facet normal") != std::string::npos)
         {
             double x;
@@ -35,7 +35,7 @@ void STLReader ::readSTL(std::string &filePath,Triangulation &triangulation)
             istringstream iss(line);
             string token1;
             string token2;
-            iss >>token1>>token2 >> x >> y >> z;
+            iss >> token1 >> token2 >> x >> y >> z;
             // Create a Point3D object
             Point3D point(x, y, z);
 
@@ -104,39 +104,34 @@ void STLReader ::readSTL(std::string &filePath,Triangulation &triangulation)
     inputFile.close();
 }
 
-
-
 vector<Point2D> STLReader::readpoints(std::string &filePath)
-{   
+{
 
     std::fstream CoordinatesFile(filePath);
-    // if (!CoordinatesFile.is_open())
-    // {
-    //     std::cerr << "Error opening file: " << std::endl;
-    //     return 0;
-    // }
 
     vector<Point2D> Points;
     char ch;
-    cout<<"\n Do you want to add points(need atleast 3 points):-"<<endl<<"Y for yes / N for no:-";
-    cin>>ch;
+    cout << "\n Do you want to add points(need atleast 3 points):-" << endl
+         << "Y for yes / N for no:-";
+    cin >> ch;
 
-    while(ch=='y'|| ch=='Y')
-    {   
+    while (ch == 'y' || ch == 'Y')
+    {
         double x, y;
-        cout<<"\nEnter Coordinates of the points:- "<<endl;
-        cin>>x>>y;
+        cout << "\nEnter Coordinates of the points:- " << endl;
+        cin >> x >> y;
 
-        Point2D P(x,y);
+        Point2D P(x, y);
 
         Points.push_back(P);
-        CoordinatesFile<<P.x()<<" "<<P.y()<<endl;
+        CoordinatesFile << P.x() << " " << P.y() << endl;
 
-        cout<<"\n Do you want to add more points(need atleast 3) ?"<<endl<<"y for yes / n for no:-";
-        cin>>ch;
+        cout << "\n Do you want to add more points(need atleast 3) ?" << endl
+             << "y for yes / n for no:-";
+        cin >> ch;
     }
 
-CoordinatesFile<<Points[0].x()<<" "<<Points[0].y()<<" "<<endl;
-CoordinatesFile.close();
-return Points;
+    CoordinatesFile << Points[0].x() << " " << Points[0].y() << " " << endl;
+    CoordinatesFile.close();
+    return Points;
 }

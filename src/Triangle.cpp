@@ -1,7 +1,6 @@
 #include "../headers/Triangle.h"
 
-
-Triangle::Triangle(int v1, int v2, int v3,int normalIndex) : mV1(v1), mV2(v2), mV3(v3) ,mNormalIndex(normalIndex){}
+Triangle::Triangle(int v1, int v2, int v3, int normalIndex) : mV1(v1), mV2(v2), mV3(v3), mNormalIndex(normalIndex) {}
 
 Triangle::~Triangle()
 {
