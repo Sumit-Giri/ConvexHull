@@ -90,5 +90,7 @@ The project is organized into the following folders:
 - In gnu plot give command as `splot 'file_path' w lp` to get shape plotted.
 
 ### Output Snapshot
-  
- 
+  ![Screenshot (36) (1)](https://github.com/Sumit-Giri/ConvexHull/assets/158052390/3a73a90b-ad00-48f6-8453-20677d37d2a8)
+
+ ![Screenshot (35) (1)](https://github.com/Sumit-Giri/ConvexHull/assets/158052390/6ab28682-2787-47c7-98e3-96aa39eab1a1)
+
