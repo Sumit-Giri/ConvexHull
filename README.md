@@ -88,4 +88,7 @@ The project is organized into the following folders:
 ### Steps to plot geometry on gnu plot
 - Copy the path of text file of shape which we have to plot.
 - In gnu plot give command as `splot 'file_path' w lp` to get shape plotted.
+
+### Output Snapshot
+  
  
